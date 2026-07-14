@@ -1,2 +1,2 @@
-# Autoguard-Energy-
+# Autoguard-Energy
 Autogauard landing page
