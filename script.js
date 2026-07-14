@@ -1,5 +1,5 @@
 // ============================================================
-// AUTO GUARD ENERGY — content data + interactions
+// AUTO GUARD ENERGY: content data + interactions
 // ============================================================
 
 const services = [
@@ -7,7 +7,7 @@ const services = [
   { tag: "SVC-02", title: "Industrial Spare Parts Supply", desc: "Mechanical, electrical, hydraulic, and automation components for critical assets." },
   { tag: "SVC-03", title: "Replacement Equipment Sourcing", desc: "Sourcing full replacement units when repair is no longer viable." },
   { tag: "SVC-04", title: "Technical Procurement Support", desc: "Specification review and technical validation before you commit to an order." },
-  { tag: "SVC-05", title: "Supply Chain Coordination", desc: "End-to-end logistics coordination from OEM to your facility." },
+  { tag: "SVC-05", title: "Supply Chain Coordination", desc: "Coordinating logistics all the way from the OEM to your facility." },
   { tag: "SVC-06", title: "Vendor & OEM Liaison", desc: "Acting as your single point of contact across multiple suppliers." },
   { tag: "SVC-07", title: "Shutdown & Outage Support", desc: "Rapid procurement support for planned and emergency shutdowns." },
   { tag: "SVC-08", title: "Engineering Consultation", desc: "Technical input on retrofits, upgrades, and component selection." },
@@ -25,7 +25,7 @@ const industries = [
     icon: "⚡",
     name: "Power Generation",
     hint: "Hydro · Thermal · Solar",
-    desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants — turbines to control systems.",
+    desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants, from turbines to control systems.",
     parts: ["Turbine & Governor Parts", "Generators", "Hydraulic Power Units", "Cooling Water Systems", "LV/MV Electrical Systems", "DC/Battery Systems", "Control & Automation", "Instrumentation"]
   },
   {
@@ -39,14 +39,14 @@ const industries = [
     icon: "🍽",
     name: "Food & Beverage",
     hint: "8 categories",
-    desc: "Hygienic-grade and process equipment components for food and beverage processing facilities.",
+    desc: "Hygienic process equipment components for food and beverage processing facilities.",
     parts: ["Pumps & Valves", "Process Instrumentation", "Stainless Fittings", "Motors & Drives", "Filtration Systems", "Control Systems", "Seals & Gaskets", "Piping Components"]
   },
   {
     icon: "🏗",
     name: "Cement",
     hint: "8 categories",
-    desc: "Wear-resistant and process components for cement production, milling, and material handling.",
+    desc: "Wear resistant and process components for cement production, milling, and material handling.",
     parts: ["Mill Liners & Wear Parts", "Kiln Components", "Conveyor Systems", "Fans & Blowers", "Bearings", "Hydraulic Systems", "Electrical Drives", "Instrumentation"]
   },
   {
@@ -67,7 +67,7 @@ const industries = [
     icon: "🌾",
     name: "Agriculture",
     hint: "8 categories",
-    desc: "Equipment and spare parts supporting agro-processing and heavy agricultural operations.",
+    desc: "Equipment and spare parts supporting agricultural processing and heavy farm operations.",
     parts: ["Irrigation Pumps", "Motors & Drives", "Processing Equipment", "Hydraulic Components", "Bearings & Seals", "Control Systems", "Piping Components", "Wear Parts"]
   },
 ];
@@ -103,7 +103,7 @@ const panelClose = document.getElementById("panelClose");
 
 function openIndustry(i){
   const ind = industries[i];
-  panelEyebrow.innerHTML = `<span class="rivet"></span>${ind.name} — Sample Sourcing Categories<span class="rivet"></span>`;
+  panelEyebrow.innerHTML = `<span class="rivet"></span>${ind.name}: sample sourcing categories<span class="rivet"></span>`;
   panelTitle.textContent = ind.name;
   panelDesc.textContent = ind.desc;
   panelParts.innerHTML = ind.parts.map(p => `
@@ -152,7 +152,7 @@ const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  formNote.textContent = "Thanks — your request has been noted. Connect a form backend (e.g. Formspree, or an API route) to receive these submissions.";
+  formNote.textContent = "Thanks, we've noted your request. Connect a form backend (like Formspree) or an API route to actually receive these submissions.";
   contactForm.reset();
 });
 
