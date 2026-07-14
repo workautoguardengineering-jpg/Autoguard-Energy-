@@ -412,6 +412,7 @@ p{ margin: 0 0 14px; }
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
+      <a href="#equipment">Equipment</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -536,18 +537,31 @@ p{ margin: 0 0 14px; }
   </div>
 </section>
 
-<!-- Industry detail panel (opens on click) -->
+<!-- Detail panel (shared by Industries and Equipment, opens on click) -->
 <div class="industry-panel" id="industryPanel" aria-hidden="true">
   <div class="industry-panel-inner">
     <button class="panel-close" id="panelClose" aria-label="Close">&times;</button>
-    <p class="plate" id="panelEyebrow"><span class="rivet"></span>Industry Focus<span class="rivet"></span></p>
-    <h3 class="h3" id="panelTitle">Industry</h3>
+    <p class="plate" id="panelEyebrow"><span class="rivet"></span>Detail<span class="rivet"></span></p>
+    <h3 class="h3" id="panelTitle">Detail</h3>
     <p id="panelDesc" class="lead lead-narrow"></p>
     <div class="parts-grid" id="panelParts"></div>
-    <p class="panel-note">Photos of specific parts sourced for this sector will be added here. Contact us for a full catalogue.</p>
+    <p class="panel-note" id="panelNote"></p>
   </div>
 </div>
 <div class="panel-backdrop" id="panelBackdrop"></div>
+
+<!-- ============ EQUIPMENT WE SUPPLY ============ -->
+<section class="section section-steel" id="equipment">
+  <div class="wrap">
+    <p class="plate plate-light"><span class="rivet"></span>What We Supply<span class="rivet"></span></p>
+    <h2 class="h2 h2-light">Equipment we supply</h2>
+    <p class="lead lead-narrow lead-light">Select a category to see the equipment we source within it. Photos of units we've supplied are coming soon.</p>
+
+    <div class="industry-grid" id="equipmentGrid">
+      <!-- injected by script.js -->
+    </div>
+  </div>
+</section>
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="section section-light" id="how">
@@ -693,6 +707,7 @@ p{ margin: 0 0 14px; }
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
+      <a href="#equipment">Equipment</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
@@ -713,6 +728,65 @@ p{ margin: 0 0 14px; }
 // AUTO GUARD ENERGY: content data + interactions
 // ============================================================
 
+const equipment = [
+  {
+    icon: "🔧",
+    name: "Pumps",
+    hint: "5 categories",
+    desc: "Centrifugal, positive displacement, and process pumps for industrial and utility applications.",
+    parts: ["Centrifugal Pumps", "Submersible Pumps", "Process Pumps", "Metering Pumps", "Pump Spares"]
+  },
+  {
+    icon: "❄",
+    name: "Cooling Equipment",
+    hint: "5 categories",
+    desc: "Oil coolers, heat exchangers, and cooling water systems for plant and process equipment.",
+    parts: ["Oil Coolers", "Heat Exchangers", "Cooling Water Systems", "Fan Assemblies", "Cooling Towers"]
+  },
+  {
+    icon: "⏻",
+    name: "Valves & Actuators",
+    hint: "5 categories",
+    desc: "Ball, gate, check, and control valves, along with pneumatic and electric actuators.",
+    parts: ["Ball Valves", "Gate Valves", "Check Valves", "Control Valves", "Actuators"]
+  },
+  {
+    icon: "⚙",
+    name: "Hydraulic Systems",
+    hint: "5 categories",
+    desc: "Hydraulic power units, cylinders, motors, accumulators, and related components.",
+    parts: ["Hydraulic Power Units", "Hydraulic Cylinders", "Hydraulic Motors", "Accumulators", "Hoses & Fittings"]
+  },
+  {
+    icon: "⚡",
+    name: "Electrical Components",
+    hint: "5 categories",
+    desc: "Motors, drives, switchgear, circuit breakers, and low and medium voltage equipment.",
+    parts: ["Motors & Drives", "Circuit Breakers", "Switchgear", "Selector Switches", "DC & Battery Systems"]
+  },
+  {
+    icon: "◎",
+    name: "Instrumentation",
+    hint: "5 categories",
+    desc: "Flowmeters, pressure and temperature gauges, level sensors, and position transducers.",
+    parts: ["Flowmeters", "Pressure Gauges", "Temperature Gauges", "Level Sensors", "Position Transducers"]
+  },
+  {
+    icon: "○",
+    name: "Bearings & Seals",
+    hint: "5 categories",
+    desc: "Plain and roller bearings, elastomer seals, and wear components for rotating equipment.",
+    parts: ["Plain Bearings", "Roller Bearings", "Elastomer Seals", "Shaft Seals", "Wear Parts"]
+  },
+  {
+    icon: "▦",
+    name: "Automation & Control",
+    hint: "5 categories",
+    desc: "Control panels, touch screen interfaces, input and output modules, and network devices.",
+    parts: ["Control Units", "Touch Screen Panels", "Input & Output Modules", "Network Interfaces", "Energy Meters"]
+  },
+];
+
 const services = [
   { tag: "SVC-01", title: "OEM Procurement Solutions", desc: "Direct sourcing of genuine equipment and parts through verified OEM relationships." },
   { tag: "SVC-02", title: "Industrial Spare Parts Supply", desc: "Mechanical, electrical, hydraulic, and automation components for critical assets." },
@@ -728,58 +802,58 @@ const industries = [
   {
     icon: "⛏",
     name: "Mining",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Genuine OEM parts and equipment for mining operations, from processing plants to heavy fleet support.",
-    parts: ["Crusher & Mill Components", "Conveyor Systems", "Pumps & Valves", "Hydraulic Cylinders", "Bearings & Seals", "Electrical Drives", "Instrumentation", "Wear Parts"]
+    parts: ["Crusher & Mill Components", "Conveyor Systems", "Pumps & Valves", "Hydraulic Cylinders", "Wear Parts"]
   },
   {
     icon: "⚡",
     name: "Power Generation",
     hint: "Hydro · Thermal · Solar",
     desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants, from turbines to control systems.",
-    parts: ["Turbine & Governor Parts", "Generators", "Hydraulic Power Units", "Cooling Water Systems", "LV/MV Electrical Systems", "DC/Battery Systems", "Control & Automation", "Instrumentation"]
+    parts: ["Turbine & Governor Parts", "Generators", "Hydraulic Power Units", "Cooling Water Systems", "Control & Automation"]
   },
   {
     icon: "⚙",
     name: "Manufacturing",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Spare parts and replacement components to keep production lines running with minimal disruption.",
-    parts: ["Motors & Drives", "Gearboxes", "Sensors & Switches", "Pneumatic Components", "Conveyor Parts", "Control Panels", "Bearings", "Seals & Gaskets"]
+    parts: ["Motors & Drives", "Gearboxes", "Sensors & Switches", "Control Panels", "Seals & Gaskets"]
   },
   {
     icon: "🍽",
     name: "Food & Beverage",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Hygienic process equipment components for food and beverage processing facilities.",
-    parts: ["Pumps & Valves", "Process Instrumentation", "Stainless Fittings", "Motors & Drives", "Filtration Systems", "Control Systems", "Seals & Gaskets", "Piping Components"]
+    parts: ["Pumps & Valves", "Process Instrumentation", "Stainless Fittings", "Filtration Systems", "Piping Components"]
   },
   {
     icon: "🏗",
     name: "Cement",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Wear resistant and process components for cement production, milling, and material handling.",
-    parts: ["Mill Liners & Wear Parts", "Kiln Components", "Conveyor Systems", "Fans & Blowers", "Bearings", "Hydraulic Systems", "Electrical Drives", "Instrumentation"]
+    parts: ["Mill Liners & Wear Parts", "Kiln Components", "Conveyor Systems", "Fans & Blowers", "Hydraulic Systems"]
   },
   {
     icon: "💧",
     name: "Water & Wastewater",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Pumping, valve, and instrumentation components for municipal and industrial water infrastructure.",
-    parts: ["Pumps", "Valves & Actuators", "Flowmeters", "Level Sensors", "Motors", "Control Panels", "Piping Components", "Filtration Media"]
+    parts: ["Pumps", "Valves & Actuators", "Flowmeters", "Level Sensors", "Filtration Media"]
   },
   {
     icon: "🛢",
     name: "Oil & Gas",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Certified components for upstream, midstream, and downstream oil and gas operations.",
-    parts: ["Valves & Actuators", "Pumps & Compressors", "Seals & Gaskets", "Instrumentation", "Pressure Vessels Parts", "Electrical Components", "Piping & Fittings", "Safety Systems"]
+    parts: ["Valves & Actuators", "Pumps & Compressors", "Seals & Gaskets", "Instrumentation", "Safety Systems"]
   },
   {
     icon: "🌾",
     name: "Agriculture",
-    hint: "8 categories",
+    hint: "5 categories",
     desc: "Equipment and spare parts supporting agricultural processing and heavy farm operations.",
-    parts: ["Irrigation Pumps", "Motors & Drives", "Processing Equipment", "Hydraulic Components", "Bearings & Seals", "Control Systems", "Piping Components", "Wear Parts"]
+    parts: ["Irrigation Pumps", "Motors & Drives", "Processing Equipment", "Hydraulic Components", "Wear Parts"]
   },
 ];
 
@@ -793,6 +867,16 @@ servicesGrid.innerHTML = services.map(s => `
   </div>
 `).join("");
 
+// ---------- Render equipment categories ----------
+const equipmentGrid = document.getElementById("equipmentGrid");
+equipmentGrid.innerHTML = equipment.map((e, i) => `
+  <button class="industry-card" data-index="${i}">
+    <span class="industry-icon">${e.icon}</span>
+    <h4>${e.name}</h4>
+    <span class="hint">${e.hint}</span>
+  </button>
+`).join("");
+
 // ---------- Render industries ----------
 const industryGrid = document.getElementById("industryGrid");
 industryGrid.innerHTML = industries.map((ind, i) => `
@@ -803,33 +887,34 @@ industryGrid.innerHTML = industries.map((ind, i) => `
   </button>
 `).join("");
 
-// ---------- Industry detail panel ----------
+// ---------- Shared detail panel (Industries + Equipment) ----------
 const panel = document.getElementById("industryPanel");
 const backdrop = document.getElementById("panelBackdrop");
 const panelTitle = document.getElementById("panelTitle");
 const panelDesc = document.getElementById("panelDesc");
 const panelEyebrow = document.getElementById("panelEyebrow");
 const panelParts = document.getElementById("panelParts");
+const panelNote = document.getElementById("panelNote");
 const panelClose = document.getElementById("panelClose");
 
-function openIndustry(i){
-  const ind = industries[i];
-  panelEyebrow.innerHTML = `<span class="rivet"></span>${ind.name}: sample sourcing categories<span class="rivet"></span>`;
-  panelTitle.textContent = ind.name;
-  panelDesc.textContent = ind.desc;
-  panelParts.innerHTML = ind.parts.map(p => `
+function openPanel(item, eyebrowLabel, noteText){
+  panelEyebrow.innerHTML = `<span class="rivet"></span>${eyebrowLabel}<span class="rivet"></span>`;
+  panelTitle.textContent = item.name;
+  panelDesc.textContent = item.desc;
+  panelParts.innerHTML = item.parts.map(p => `
     <div class="part-tile">
       <span class="tile-icon">▢</span>
       ${p}
     </div>
   `).join("");
+  panelNote.textContent = noteText;
   panel.classList.add("open");
   backdrop.classList.add("open");
   panel.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
-function closeIndustry(){
+function closePanel(){
   panel.classList.remove("open");
   backdrop.classList.remove("open");
   panel.setAttribute("aria-hidden", "true");
@@ -839,12 +924,21 @@ function closeIndustry(){
 industryGrid.addEventListener("click", (e) => {
   const btn = e.target.closest(".industry-card");
   if (!btn) return;
-  openIndustry(Number(btn.dataset.index));
+  const ind = industries[Number(btn.dataset.index)];
+  openPanel(ind, `${ind.name}: sample sourcing categories`, "Photos of specific parts sourced for this sector will be added here. Contact us for a full catalogue.");
 });
-panelClose.addEventListener("click", closeIndustry);
-backdrop.addEventListener("click", closeIndustry);
+
+equipmentGrid.addEventListener("click", (e) => {
+  const btn = e.target.closest(".industry-card");
+  if (!btn) return;
+  const eq = equipment[Number(btn.dataset.index)];
+  openPanel(eq, `${eq.name}: sample equipment supplied`, "Photos of the equipment we've supplied in this category will be added here.");
+});
+
+panelClose.addEventListener("click", closePanel);
+backdrop.addEventListener("click", closePanel);
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeIndustry();
+  if (e.key === "Escape") closePanel();
 });
 
 // ---------- Mobile nav toggle ----------
