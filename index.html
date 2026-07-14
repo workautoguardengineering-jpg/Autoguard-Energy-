@@ -27,6 +27,7 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
+      <a href="#equipment">Equipment</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -151,18 +152,31 @@
   </div>
 </section>
 
-<!-- Industry detail panel (opens on click) -->
+<!-- Detail panel (shared by Industries and Equipment, opens on click) -->
 <div class="industry-panel" id="industryPanel" aria-hidden="true">
   <div class="industry-panel-inner">
     <button class="panel-close" id="panelClose" aria-label="Close">&times;</button>
-    <p class="plate" id="panelEyebrow"><span class="rivet"></span>Industry Focus<span class="rivet"></span></p>
-    <h3 class="h3" id="panelTitle">Industry</h3>
+    <p class="plate" id="panelEyebrow"><span class="rivet"></span>Detail<span class="rivet"></span></p>
+    <h3 class="h3" id="panelTitle">Detail</h3>
     <p id="panelDesc" class="lead lead-narrow"></p>
     <div class="parts-grid" id="panelParts"></div>
-    <p class="panel-note">Photos of specific parts sourced for this sector will be added here. Contact us for a full catalogue.</p>
+    <p class="panel-note" id="panelNote"></p>
   </div>
 </div>
 <div class="panel-backdrop" id="panelBackdrop"></div>
+
+<!-- ============ EQUIPMENT WE SUPPLY ============ -->
+<section class="section section-steel" id="equipment">
+  <div class="wrap">
+    <p class="plate plate-light"><span class="rivet"></span>What We Supply<span class="rivet"></span></p>
+    <h2 class="h2 h2-light">Equipment we supply</h2>
+    <p class="lead lead-narrow lead-light">Select a category to see the equipment we source within it. Photos of units we've supplied are coming soon.</p>
+
+    <div class="industry-grid" id="equipmentGrid">
+      <!-- injected by script.js -->
+    </div>
+  </div>
+</section>
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="section section-light" id="how">
@@ -308,6 +322,7 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
+      <a href="#equipment">Equipment</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
