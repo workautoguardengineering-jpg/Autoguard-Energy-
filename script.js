@@ -1,227 +1,395 @@
-// ============================================================
-// AUTO GUARD ENERGY: content data + interactions
-// ============================================================
+/* ===================================================================
+   AUTO GUARD ENERGY — Design tokens v4 (Variation C: Welcoming Blue)
+   Light, calm, trustworthy: pale blue paper, deep sapphire ink,
+   medium sky-blue accent. Same type and layout as Variation B.
+   Display: Libre Caslon Display / Body+Mono: IBM Plex Sans / Plex Mono
+=================================================================== */
+:root{
+  --paper: #F2F7FB;
+  --paper-2: #E4EFF7;
+  --paper-3: #D2E4F0;
+  --ink: #163A5C;
+  --ink-2: #1D4A70;
+  --ink-3: #24567E;
+  --slate: #47617A;
+  --slate-light: #B7C9D9;
+  --cream: #F6FAFD;
+  --accent2: #1F5A8C;
+  --accent2-light: #4F86B8;
+  --accent: #3D7DB8;
+  --accent-light: #7FB2DD;
+  --accent-dark: #235E90;
+  --line: rgba(22,58,92,0.16);
+  --line-strong: rgba(22,58,92,0.28);
+  --line-light: rgba(246,250,253,0.18);
+  --line-light-strong: rgba(246,250,253,0.34);
 
-const products = [
-  { id: "p001", img: "assets/products/p001.jpg", name: "HYDAC Hydraulic Accumulator & Accessories", category: "Hydraulic Systems", industries: ["Mining", "Power Generation", "Manufacturing", "Cement", "Oil & Gas", "Water & Wastewater"] },
-  { id: "p002", img: "assets/products/p002.jpg", name: "Pressure Switch / Transmitter", category: "Instrumentation & Automation", industries: ["Mining", "Power Generation", "Manufacturing", "Oil & Gas", "Cement", "Water & Wastewater"] },
-  { id: "p003", img: "assets/products/p003.jpg", name: "Hydraulic Rotary Actuator", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
-  { id: "p004", img: "assets/products/p004.jpg", name: "DC/AC Power Inverter", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Water & Wastewater", "Agriculture", "Mining"] },
-  { id: "p005", img: "assets/products/p005.jpg", name: "Generator Controller / HMI", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Oil & Gas"] },
-  { id: "p006", img: "assets/products/p006.jpg", name: "Solenoid Valve Assembly", category: "Valves & Flow Control", industries: ["Manufacturing", "Oil & Gas", "Mining", "Water & Wastewater", "Agriculture"] },
-  { id: "p007", img: "assets/products/p007.jpg", name: "Digital Energy Meter", category: "Instrumentation & Automation", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater", "Agriculture"] },
-  { id: "p008", img: "assets/products/p008.jpg", name: "Industrial Power Supply", category: "Electrical & Power Systems", industries: ["Manufacturing", "Power Generation", "Water & Wastewater", "Cement"] },
-  { id: "p009", img: "assets/products/p009.jpg", name: "Generator Test Controller", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Oil & Gas"] },
-  { id: "p010", img: "assets/products/p010.jpg", name: "Protection Relay / Meter", category: "Instrumentation & Automation", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
-  { id: "p011", img: "assets/products/p011.jpg", name: "High Voltage Test Unit (70 kVDC)", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Oil & Gas"] },
-  { id: "p012", img: "assets/products/p012.jpg", name: "Industrial Power Supply Module", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
-  { id: "p013", img: "assets/products/p013.jpg", name: "Siemens Industrial Power Supply", category: "Electrical & Power Systems", industries: ["Manufacturing", "Power Generation", "Water & Wastewater", "Food & Beverage", "Cement"] },
-  { id: "p014", img: "assets/products/p014.jpg", name: "PWM Motor Driver / DC Motor Controller", category: "Instrumentation & Automation", industries: ["Manufacturing", "Water & Wastewater", "Agriculture", "Food & Beverage"] },
-  { id: "p015", img: "assets/products/p015.jpg", name: "HYDAC FPU Pressure Test Kit", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
-  { id: "p016", img: "assets/products/p016.jpg", name: "Industrial Battery / UPS Module", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
-  { id: "p017", img: "assets/products/p017.jpg", name: "Stainless Steel Instrument Tubing", category: "Tubing & Hoses", industries: ["Oil & Gas", "Mining", "Power Generation", "Water & Wastewater", "Food & Beverage"] },
-  { id: "p018", img: "assets/products/p018.jpg", name: "Industrial Cable Reel", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas"] },
-  { id: "p019", img: "assets/products/p019.jpg", name: "Hydraulic Hose Assembly Kit", category: "Tubing & Hoses", industries: ["Mining", "Oil & Gas", "Agriculture", "Manufacturing", "Cement"] },
-  { id: "p020", img: "assets/products/p020.jpg", name: "Flexible Jaw Coupling", category: "Mechanical Power Transmission", industries: ["Manufacturing", "Mining", "Cement", "Water & Wastewater", "Food & Beverage", "Agriculture"] },
-  { id: "p021", img: "assets/products/p021.jpg", name: "Industrial Rubber Seals / O-Rings", category: "Seals & Repair Kits", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Food & Beverage", "Agriculture", "Cement"] },
-  { id: "p022", img: "assets/products/p022.jpg", name: "Hydraulic Seal Kit", category: "Seals & Repair Kits", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
-  { id: "p023", img: "assets/products/p023.jpg", name: "Bronze Plain Bearing Bush", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
-  { id: "p024", img: "assets/products/p024.jpg", name: "Plain Bearing Bushes", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
-  { id: "p025", img: "assets/products/p025.jpg", name: "Pump & Bearing Spare Parts Kit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Water & Wastewater", "Manufacturing", "Oil & Gas"] },
-  { id: "p026", img: "assets/products/p026.jpg", name: "Precision Wear Plate", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
-  { id: "p027", img: "assets/products/p027.jpg", name: "Hydraulic Cylinder Assembly", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
-  { id: "p028", img: "assets/products/p028.jpg", name: "Bearing Bush Inventory", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
-  { id: "p029", img: "assets/products/p029.jpg", name: "Hydraulic Manifold Block", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Water & Wastewater", "Cement"] },
-  { id: "p030", img: "assets/products/p030.jpg", name: "Electric Motor / Gear Motor", category: "Motors & Drives", industries: ["Mining", "Manufacturing", "Cement", "Water & Wastewater", "Food & Beverage", "Agriculture"] },
-  { id: "p031", img: "assets/products/p031.jpg", name: "HYDAC Mobile Filter Unit", category: "Filtration & Fluid Conditioning", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement", "Agriculture"] },
-  { id: "p032", img: "assets/products/p032.jpg", name: "Oil-Air Cooler / Hydraulic Cooler", category: "Filtration & Fluid Conditioning", industries: ["Mining", "Manufacturing", "Oil & Gas", "Cement", "Water & Wastewater"] },
-  { id: "p034", img: "assets/products/p034.jpg", name: "Heavy-Duty Hydraulic Cylinder", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
-  { id: "p035", img: "assets/products/p035.jpg", name: "Hydraulic Cylinder", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
-  { id: "p036", img: "assets/products/p036.jpg", name: "Bladder Accumulator", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
-  { id: "p037", img: "assets/products/p037.jpg", name: "Bosch Rexroth Solenoid Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p038", img: "assets/products/p038.jpg", name: "Bosch Rexroth Pressure / Flow Control Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p039", img: "assets/products/p039.jpg", name: "Bosch Rexroth Directional Control Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p040", img: "assets/products/p040.jpg", name: "4-Way Ball Valve", category: "Valves & Flow Control", industries: ["Mining", "Oil & Gas", "Manufacturing", "Water & Wastewater", "Cement"] },
-  { id: "p041", img: "assets/products/p041.jpg", name: "Air / Pneumatic Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas", "Food & Beverage"] },
-  { id: "p042", img: "assets/products/p042.jpg", name: "Rope Pull Safety Switch", category: "Instrumentation & Automation", industries: ["Mining", "Manufacturing", "Cement", "Food & Beverage", "Agriculture"] },
-  { id: "p043", img: "assets/products/p043.jpg", name: "Hydraulic Solenoid Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p044", img: "assets/products/p044.jpg", name: "Butterfly Valve", category: "Valves & Flow Control", industries: ["Water & Wastewater", "Oil & Gas", "Manufacturing", "Food & Beverage", "Cement", "Agriculture"] },
-  { id: "p045", img: "assets/products/p045.jpg", name: "Electric Pump Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas", "Agriculture"] },
-  { id: "p046", img: "assets/products/p046.jpg", name: "Hydraulic Power Unit (HPU)", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p047", img: "assets/products/p047.jpg", name: "Hydraulic Gear Pump", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Agriculture", "Cement"] },
-  { id: "p048", img: "assets/products/p048.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p049", img: "assets/products/p049.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
-  { id: "p050", img: "assets/products/p050.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement", "Agriculture"] },
-  { id: "p051", img: "assets/products/p051.jpg", name: "Electric Motor with Gearbox / Gear Motor", category: "Motors & Drives", industries: ["Mining", "Manufacturing", "Cement", "Water & Wastewater", "Food & Beverage"] },
-  { id: "p052", img: "assets/products/p052.jpg", name: "Industrial Process Pump (Wilo)", category: "Pumps & Fluid Transfer", industries: ["Water & Wastewater", "Manufacturing", "Food & Beverage", "Agriculture", "Mining"] },
-  { id: "p053", img: "assets/products/p053.jpg", name: "Hydraulic Rotary Actuator", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
-  { id: "p054", img: "assets/products/p054.jpg", name: "Hydraulic Rotary Actuator (Close-up)", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
-];
+  --font-display: "Libre Caslon Display", serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 
-const equipmentMeta = [
-  { category: "Hydraulic Systems", icon: "⚙", desc: "Hydraulic power units, cylinders, actuators, and accumulators for industrial systems." },
-  { category: "Electrical & Power Systems", icon: "⚡", desc: "Motors, inverters, power supplies, and control equipment for electrical systems." },
-  { category: "Valves & Flow Control", icon: "⏻", desc: "Solenoid, ball, butterfly, and directional control valves for fluid and process control." },
-  { category: "Pumps & Fluid Transfer", icon: "🔧", desc: "Centrifugal, gear, and process pumps, along with pump and motor units." },
-  { category: "Instrumentation & Automation", icon: "◎", desc: "Sensors, switches, meters, and controllers for monitoring and automation." },
-  { category: "Mechanical Power Transmission", icon: "○", desc: "Bearings, bushings, couplings, and wear components for rotating equipment." },
-  { category: "Filtration & Fluid Conditioning", icon: "❄", desc: "Filter units and coolers that keep hydraulic and process fluids clean and controlled." },
-  { category: "Seals & Repair Kits", icon: "✚", desc: "Seal kits and O-rings for hydraulic and mechanical repair work." },
-  { category: "Motors & Drives", icon: "⟲", desc: "Electric motors and gear motors for driving industrial equipment." },
-  { category: "Tubing & Hoses", icon: "〰", desc: "Instrument tubing and hydraulic hose assemblies for fluid and pressure lines." },
-];
-
-const equipment = equipmentMeta.map(m => ({
-  icon: m.icon,
-  name: m.category,
-  hint: `${products.filter(p => p.category === m.category).length} items supplied`,
-  desc: m.desc,
-  items: products.filter(p => p.category === m.category),
-}));
-
-
-const services = [
-  { tag: "SVC-01", title: "OEM Procurement Solutions", desc: "Direct sourcing of genuine equipment and parts through verified OEM relationships." },
-  { tag: "SVC-02", title: "Industrial Spare Parts Supply", desc: "Mechanical, electrical, hydraulic, and automation components for critical assets." },
-  { tag: "SVC-03", title: "Replacement Equipment Sourcing", desc: "Sourcing full replacement units when repair is no longer viable." },
-  { tag: "SVC-04", title: "Technical Procurement Support", desc: "Specification review and technical validation before you commit to an order." },
-  { tag: "SVC-05", title: "Supply Chain Coordination", desc: "Coordinating logistics all the way from the OEM to your facility." },
-  { tag: "SVC-06", title: "Vendor & OEM Liaison", desc: "Acting as your single point of contact across multiple suppliers." },
-  { tag: "SVC-07", title: "Shutdown & Outage Support", desc: "Rapid procurement support for planned and emergency shutdowns." },
-  { tag: "SVC-08", title: "Engineering Consultation", desc: "Technical input on retrofits, upgrades, and component selection." },
-];
-
-const industriesMeta = [
-  { icon: "⛏", name: "Mining", desc: "Genuine OEM parts and equipment for mining operations, from processing plants to heavy fleet support." },
-  { icon: "⚡", name: "Power Generation", desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants, from turbines to control systems." },
-  { icon: "⚙", name: "Manufacturing", desc: "Spare parts and replacement components to keep production lines running with minimal disruption." },
-  { icon: "🍽", name: "Food & Beverage", desc: "Hygienic process equipment components for food and beverage processing facilities." },
-  { icon: "🏗", name: "Cement", desc: "Wear resistant and process components for cement production, milling, and material handling." },
-  { icon: "💧", name: "Water & Wastewater", desc: "Pumping, valve, and instrumentation components for municipal and industrial water infrastructure." },
-  { icon: "🛢", name: "Oil & Gas", desc: "Certified components for upstream, midstream, and downstream oil and gas operations." },
-  { icon: "🌾", name: "Agriculture", desc: "Equipment and spare parts supporting agricultural processing and heavy farm operations." },
-];
-
-const INDUSTRY_SAMPLE_SIZE = 8;
-
-const industries = industriesMeta.map(m => {
-  const matches = products.filter(p => p.industries.includes(m.name));
-  return {
-    icon: m.icon,
-    name: m.name,
-    hint: `${matches.length} items supplied`,
-    desc: m.desc,
-    total: matches.length,
-    items: matches.slice(0, INDUSTRY_SAMPLE_SIZE),
-  };
-});
-
-// ---------- Render services ----------
-const servicesGrid = document.getElementById("servicesGrid");
-servicesGrid.innerHTML = services.map(s => `
-  <div class="service-card">
-    <span class="service-tag">${s.tag}</span>
-    <h4>${s.title}</h4>
-    <p>${s.desc}</p>
-  </div>
-`).join("");
-
-// ---------- Render equipment categories ----------
-const equipmentGrid = document.getElementById("equipmentGrid");
-equipmentGrid.innerHTML = equipment.map((e, i) => `
-  <button class="industry-card" data-index="${i}">
-    <span class="industry-icon">${e.icon}</span>
-    <h4>${e.name}</h4>
-    <span class="hint">${e.hint}</span>
-  </button>
-`).join("");
-
-// ---------- Render industries ----------
-const industryGrid = document.getElementById("industryGrid");
-industryGrid.innerHTML = industries.map((ind, i) => `
-  <button class="industry-card" data-index="${i}">
-    <span class="industry-icon">${ind.icon}</span>
-    <h4>${ind.name}</h4>
-    <span class="hint">${ind.hint}</span>
-  </button>
-`).join("");
-
-// ---------- Shared detail panel (Industries + Equipment) ----------
-const panel = document.getElementById("industryPanel");
-const backdrop = document.getElementById("panelBackdrop");
-const panelTitle = document.getElementById("panelTitle");
-const panelDesc = document.getElementById("panelDesc");
-const panelEyebrow = document.getElementById("panelEyebrow");
-const panelParts = document.getElementById("panelParts");
-const panelNote = document.getElementById("panelNote");
-const panelClose = document.getElementById("panelClose");
-
-function openPanel(item, eyebrowLabel, noteText){
-  panelEyebrow.innerHTML = `<span class="rivet"></span>${eyebrowLabel}<span class="rivet"></span>`;
-  panelTitle.textContent = item.name;
-  panelDesc.textContent = item.desc;
-  panelParts.innerHTML = item.items.map(p => `
-    <div class="part-tile part-tile-photo">
-      <img src="${p.img}" alt="${p.name}" loading="lazy">
-      <span>${p.name}</span>
-    </div>
-  `).join("");
-  panelNote.textContent = noteText;
-  panel.classList.add("open");
-  backdrop.classList.add("open");
-  panel.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  --radius: 2px;
+  --wrap: 1180px;
 }
 
-function closePanel(){
-  panel.classList.remove("open");
-  backdrop.classList.remove("open");
-  panel.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+ul{ margin:0; padding:0; list-style:none; }
+.wrap{ max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior:auto !important; }
 }
 
-industryGrid.addEventListener("click", (e) => {
-  const btn = e.target.closest(".industry-card");
-  if (!btn) return;
-  const ind = industries[Number(btn.dataset.index)];
-  const noteText = ind.total > ind.items.length
-    ? "A sample of the equipment we've supplied for this sector. Contact us for the full range."
-    : "Equipment we've supplied for this sector.";
-  openPanel(ind, `${ind.name}: equipment supplied`, noteText);
-});
+/* ---------- Typography ---------- */
+.h2, .h3, .h4{ font-family: var(--font-display); font-weight:400; letter-spacing: -0.005em; margin: 0 0 20px; }
+.h2{ font-size: clamp(2rem, 3.4vw, 2.7rem); max-width: 760px; line-height:1.16; }
+.h3{ font-size: clamp(1.5rem, 2.6vw, 1.9rem); }
+.h4{ font-size: 1.18rem; margin-bottom: 10px; font-weight:400; }
+.h2-light, .h4-light{ color: var(--cream); }
+.lead{ font-size: 1.08rem; color: var(--slate); max-width: 640px; }
+.lead-narrow{ max-width: 620px; }
+.lead-light{ color: var(--slate-light); }
+p{ margin: 0 0 14px; }
 
-equipmentGrid.addEventListener("click", (e) => {
-  const btn = e.target.closest(".industry-card");
-  if (!btn) return;
-  const eq = equipment[Number(btn.dataset.index)];
-  openPanel(eq, `${eq.name}: equipment supplied`, "Equipment we've supplied in this category. Contact us for specific part numbers or availability.");
-});
+/* Editorial drop cap for the About lede */
+.drop-cap::first-letter{
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  padding: 0.04em 0.1em 0 0;
+  color: var(--accent2);
+}
 
-panelClose.addEventListener("click", closePanel);
-backdrop.addEventListener("click", closePanel);
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closePanel();
-});
+/* ---------- Ledger-line signature element ---------- */
+.plate{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 20px;
+  max-width: fit-content;
+}
+.plate::before{
+  content:"";
+  width: 34px; height:1px;
+  background: var(--accent);
+  flex: none;
+}
+.plate-light{ color: var(--slate-light); }
+.plate-light::before{ background: var(--accent-light); }
+.rivet{ display:none; }
 
-// ---------- Mobile nav toggle ----------
-const navToggle = document.getElementById("navToggle");
-const mainNav = document.getElementById("main-nav");
-navToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("nav-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-mainNav.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") mainNav.classList.remove("nav-open");
-});
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 14px 30px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn-amber{ background: var(--accent); color: #FFFFFF; }
+.btn-amber:hover{ background: var(--accent-light); }
+.btn-ghost{ background: transparent; border-color: var(--line-light-strong); color: var(--cream); }
+.btn-ghost:hover{ background: rgba(246,250,253,0.08); }
+.btn-outline{ background: transparent; border-color: var(--ink); color: var(--ink); }
+.btn-outline:hover{ background: var(--ink); color: var(--cream); }
 
-// ---------- Contact form (front-end only placeholder) ----------
-const contactForm = document.getElementById("contactForm");
-const formNote = document.getElementById("formNote");
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  formNote.textContent = "Thanks, we've noted your request. Connect a form backend (like Formspree) or an API route to actually receive these submissions.";
-  contactForm.reset();
-});
+/* ===================================================================
+   HEADER / NAV — dark, authoritative, always-on ink bar
+=================================================================== */
+.site-header{
+  position: sticky; top:0; z-index: 500;
+  background: rgba(22,58,92,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-light);
+}
+.nav-row{ display:flex; align-items:center; justify-content:space-between; height: 82px; gap: 20px; }
+.brand{ display:flex; align-items:center; gap: 12px; flex: none; }
+.brand-mark{ height: 40px; width:auto; }
+.brand-text{ display:flex; flex-direction:column; line-height:1.15; }
+.brand-name{ font-family: var(--font-display); font-weight:400; color: var(--cream); font-size:1.08rem; letter-spacing:0.02em; }
+.brand-sub{ font-family: var(--font-mono); font-size:0.6rem; letter-spacing:0.18em; color: var(--slate-light); }
 
-// ---------- Footer year ----------
-document.getElementById("year").textContent = new Date().getFullYear();
+.main-nav{ display:flex; gap: 32px; margin-left: auto; }
+.main-nav a{ color: var(--cream); font-size:0.9rem; font-weight:500; position:relative; padding: 6px 0; }
+.main-nav a:hover{ color: var(--accent-light); }
+
+.nav-cta{ padding: 11px 22px; font-size: 0.78rem; }
+.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
+.nav-toggle span{ width:22px; height:2px; background: var(--cream); display:block; }
+
+/* ===================================================================
+   HERO — dark, bold, editorial. No texture, no boxes.
+=================================================================== */
+.hero{
+  position: relative;
+  background: var(--ink);
+  padding: 116px 0 0;
+}
+.hero-grid{ display:none; }
+.hero-inner{ position:relative; text-align:center; padding-bottom: 80px; max-width: 880px; margin: 0 auto; }
+.hero-inner .plate{ margin-left:auto; margin-right:auto; }
+.hero-title{
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--cream);
+  font-size: clamp(2.3rem, 5.2vw, 3.8rem);
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+  margin: 0 auto 24px;
+  max-width: 860px;
+}
+.hero-sub{
+  color: var(--slate-light);
+  font-size: 1.12rem;
+  max-width: 620px;
+  margin: 0 auto 38px;
+}
+.hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+.spec-strip{
+  position:relative;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line-light);
+  background: var(--ink-2);
+}
+.spec-item{
+  padding: 28px 20px;
+  text-align:center;
+  border-right: 1px solid var(--line-light);
+  display:flex; flex-direction:column; gap:6px;
+}
+.spec-item:last-child{ border-right:none; }
+.spec-num{ font-family: var(--font-display); font-weight:400; color: var(--accent-light); font-size:1.5rem; }
+.spec-label{ font-family: var(--font-mono); font-size:0.64rem; letter-spacing:0.1em; color: var(--slate-light); text-transform:uppercase; }
+
+/* ===================================================================
+   SECTIONS
+=================================================================== */
+.section{ padding: 104px 0; position:relative; }
+.section-light{ background: var(--paper); }
+.section-ink{ background: var(--ink); }
+.section-steel{ background: var(--ink-2); }
+/* Ledger rule across the top of every section — the recurring signature line */
+.section::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:1px;
+  background: var(--accent);
+  opacity:0.5;
+}
+.section-light::before{ background: var(--accent2); opacity:0.35; }
+
+.split-grid{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items:start; }
+.card{ padding: 0; margin-bottom: 26px; }
+.card-outline{
+  border: none; border-top: 2px solid var(--accent2);
+  border-radius: 0; background: transparent; padding: 22px 0 0;
+}
+.card-outline:last-child{ margin-bottom:0; }
+.card-outline h4{ font-family: var(--font-display); font-weight:400; }
+
+/* Challenge lists */
+.challenge-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 44px; }
+.check-list li{
+  position:relative; padding: 13px 0 13px 30px; color: var(--slate-light);
+  border-bottom: 1px solid var(--line-light);
+  font-size: 0.99rem;
+}
+.check-list li:last-child{ border-bottom:none; }
+.problem-list li::before{
+  content:"\2715"; position:absolute; left:0; top:13px; color:#B5715A; font-size:0.8rem;
+}
+.solution-list li{ color: var(--cream); }
+.solution-list li::before{
+  content:"\2713"; position:absolute; left:0; top:13px; color: var(--accent-light); font-weight:700;
+}
+
+/* ---------- Services cards — top-hairline only, no boxes ---------- */
+.cards-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 28px 22px; margin-top: 44px;
+}
+.service-card{
+  background: transparent; border: none; border-top: 2px solid var(--accent);
+  border-radius: 0; padding: 20px 0 0; position:relative;
+}
+.service-tag{ font-family: var(--font-mono); font-size:0.62rem; letter-spacing:0.14em; color: var(--accent-dark); text-transform:uppercase; }
+.service-card h4{ font-family: var(--font-display); font-weight:400; font-size:1.15rem; margin: 10px 0 8px; }
+.service-card p{ font-size:0.92rem; color: var(--slate); margin:0; }
+
+/* ---------- Industries — registration-mark corner motif ---------- */
+.industry-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px;
+}
+.industry-card{
+  background: transparent;
+  border: 1px solid var(--line-light);
+  border-radius: 0;
+  padding: 26px 20px;
+  cursor:pointer;
+  text-align:left;
+  color: var(--cream);
+  font-family: var(--font-body);
+  position: relative;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.industry-card::before, .industry-card::after{
+  content:""; position:absolute; width:10px; height:10px;
+  border-top: 1px solid var(--accent-light); border-left: 1px solid var(--accent-light);
+  top:-1px; left:-1px; opacity:0; transition: opacity .15s ease;
+}
+.industry-card::after{
+  top:auto; left:auto; bottom:-1px; right:-1px;
+  border-top:none; border-left:none;
+  border-bottom: 1px solid var(--accent-light); border-right: 1px solid var(--accent-light);
+}
+.industry-card:hover{ border-color: var(--line-light-strong); background: rgba(61,125,184,0.08); }
+.industry-card:hover::before, .industry-card:hover::after{ opacity:1; }
+.industry-icon{ font-size:1.5rem; margin-bottom:14px; display:block; filter: grayscale(1) brightness(1.6); opacity:0.85; }
+.industry-card h4{ font-family: var(--font-display); font-weight:400; font-size:1.1rem; margin:0 0 6px; }
+.industry-card span.hint{ font-family: var(--font-mono); font-size:0.62rem; letter-spacing:0.1em; color: var(--slate-light); text-transform:uppercase; }
+
+/* Industry detail overlay panel */
+.panel-backdrop{
+  position:fixed; inset:0; background: rgba(6,14,20,0.6);
+  opacity:0; pointer-events:none; transition: opacity .2s ease; z-index: 900;
+}
+.panel-backdrop.open{ opacity:1; pointer-events:auto; }
+
+.industry-panel{
+  position:fixed; top:0; right:0; height:100%; width: min(480px, 92vw);
+  background: var(--ink-2); color: var(--cream);
+  z-index: 950;
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  overflow-y:auto;
+  border-left: 1px solid var(--line-light);
+}
+.industry-panel.open{ transform: translateX(0); }
+.industry-panel-inner{ padding: 38px 34px 54px; }
+.panel-close{
+  position:absolute; top:24px; right:26px; background:none; border:none; color: var(--cream);
+  font-size:1.6rem; cursor:pointer; line-height:1;
+}
+.industry-panel .h3{ font-family: var(--font-display); font-weight:400; }
+.parts-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin: 26px 0 20px; }
+.part-tile{
+  border:1px dashed var(--line-light-strong); border-radius: 0; padding: 18px 12px;
+  text-align:center; font-family: var(--font-mono); font-size:0.7rem; letter-spacing:0.04em;
+  color: var(--slate-light); background: rgba(255,255,255,0.02);
+}
+.part-tile .tile-icon{ font-size:1.3rem; display:block; margin-bottom:8px; }
+.part-tile-photo{
+  border: 1px solid var(--line-light); padding: 0; overflow: hidden;
+  background: rgba(255,255,255,0.03); text-align: left;
+}
+.part-tile-photo img{
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  background: #0e2338;
+}
+.part-tile-photo span{
+  display: block; padding: 10px 12px; font-size: 0.68rem; letter-spacing: 0.02em;
+  line-height: 1.35; color: var(--cream); font-family: var(--font-body); font-weight: 500;
+}
+.panel-note{ font-size:0.83rem; color: var(--slate-light); border-top:1px solid var(--line-light); padding-top:18px; }
+
+/* ---------- Process (How it works) ---------- */
+.process-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 44px; }
+.process-step{ border-top: 2px solid var(--accent2); padding-top: 20px; }
+.process-num{ font-family: var(--font-mono); font-size:0.85rem; color: var(--accent2); letter-spacing:0.1em; }
+.process-step h4{ font-family: var(--font-display); font-weight:400; }
+.process-step p{ color: var(--slate); font-size:0.93rem; margin:0; }
+
+/* ---------- Why choose us ---------- */
+.why-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px 30px; margin-top: 44px; }
+.why-item h4{ font-family: var(--font-display); font-weight:400; color: var(--cream); font-size:1.08rem; margin:0 0 6px; position:relative; padding-left:18px; }
+.why-item h4::before{ content:""; position:absolute; left:0; top:9px; width:9px; height:1px; background: var(--accent-light); }
+.why-item p{ color: var(--slate-light); font-size:0.89rem; margin:0; padding-left:18px; }
+
+/* ---------- Partners ---------- */
+.partner-row{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.partner-slot{
+  flex:1 1 180px; text-align:center; padding: 28px 14px;
+  border: 1px dashed var(--line-light-strong); border-radius: 0;
+  font-family: var(--font-mono); font-size:0.68rem; letter-spacing:0.1em; color: var(--slate-light);
+  text-transform:uppercase;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 52px; margin-top: 44px; align-items:start; }
+.contact-form{ display:flex; flex-direction:column; gap: 17px; }
+.contact-form label{ display:flex; flex-direction:column; gap:6px; font-size:0.85rem; font-weight:600; color: var(--ink); }
+.contact-form input, .contact-form textarea{
+  font-family: var(--font-body); font-size:0.96rem; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 0; background:#fff; color: var(--ink);
+  font-weight: 400; resize: vertical;
+}
+.contact-form input:focus, .contact-form textarea:focus{ outline: 2px solid var(--accent2); outline-offset:1px; }
+.contact-form button{ margin-top: 6px; align-self:flex-start; }
+.form-note{ font-size:0.85rem; color: var(--accent2); min-height: 1.2em; margin:6px 0 0; }
+
+.contact-info{ display:flex; flex-direction:column; gap:20px; }
+.info-block{ display:flex; flex-direction:column; gap:4px; border-bottom:1px solid var(--line); padding-bottom:17px; }
+.info-label{ font-family: var(--font-mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--slate); }
+.info-block a{ font-weight:600; }
+.map-embed{ border-radius: 0; overflow:hidden; border:1px solid var(--line); margin-top:6px; filter: grayscale(0.5) contrast(1.05); }
+
+/* ---------- Footer ---------- */
+.site-footer{ background: var(--ink); color: var(--slate-light); padding-top: 70px; }
+.footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 42px; padding-bottom: 42px; border-bottom: 1px solid var(--line-light); }
+.footer-logo{ height:38px; margin-bottom:18px; }
+.footer-grid h5{ font-family: var(--font-mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color: var(--cream); margin: 0 0 15px; }
+.footer-grid a, .footer-grid span{ display:block; margin-bottom:10px; font-size:0.9rem; }
+.footer-grid a:hover{ color: var(--accent-light); }
+.footer-bottom{ padding: 24px; font-size:0.8rem; }
+
+/* ===================================================================
+   RESPONSIVE
+=================================================================== */
+@media (max-width: 980px){
+  .cards-grid, .industry-grid{ grid-template-columns: repeat(2, 1fr); }
+  .process-grid, .why-grid{ grid-template-columns: repeat(2, 1fr); }
+  .split-grid, .challenge-grid, .contact-grid{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .spec-strip{ grid-template-columns: repeat(2, 1fr); }
+  .spec-item:nth-child(2){ border-right:none; }
+}
+@media (max-width: 720px){
+  .main-nav{
+    display:none; position:absolute; top:82px; left:0; right:0;
+    background: var(--ink); flex-direction:column; gap:0;
+    border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light);
+  }
+  .main-nav.nav-open{ display:flex; }
+  .main-nav a{ padding: 16px 24px; border-bottom:1px solid var(--line-light); }
+  .nav-cta{ display:none; }
+  .nav-toggle{ display:flex; }
+  .cards-grid, .industry-grid, .process-grid, .why-grid{ grid-template-columns: 1fr; }
+  .hero{ padding-top: 100px; }
+  .section{ padding: 72px 0; }
+}
