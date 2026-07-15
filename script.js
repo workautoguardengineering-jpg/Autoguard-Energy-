@@ -2,64 +2,83 @@
 // AUTO GUARD ENERGY: content data + interactions
 // ============================================================
 
-const equipment = [
-  {
-    icon: "🔧",
-    name: "Pumps",
-    hint: "5 categories",
-    desc: "Centrifugal, positive displacement, and process pumps for industrial and utility applications.",
-    parts: ["Centrifugal Pumps", "Submersible Pumps", "Process Pumps", "Metering Pumps", "Pump Spares"]
-  },
-  {
-    icon: "❄",
-    name: "Cooling Equipment",
-    hint: "5 categories",
-    desc: "Oil coolers, heat exchangers, and cooling water systems for plant and process equipment.",
-    parts: ["Oil Coolers", "Heat Exchangers", "Cooling Water Systems", "Fan Assemblies", "Cooling Towers"]
-  },
-  {
-    icon: "⏻",
-    name: "Valves & Actuators",
-    hint: "5 categories",
-    desc: "Ball, gate, check, and control valves, along with pneumatic and electric actuators.",
-    parts: ["Ball Valves", "Gate Valves", "Check Valves", "Control Valves", "Actuators"]
-  },
-  {
-    icon: "⚙",
-    name: "Hydraulic Systems",
-    hint: "5 categories",
-    desc: "Hydraulic power units, cylinders, motors, accumulators, and related components.",
-    parts: ["Hydraulic Power Units", "Hydraulic Cylinders", "Hydraulic Motors", "Accumulators", "Hoses & Fittings"]
-  },
-  {
-    icon: "⚡",
-    name: "Electrical Components",
-    hint: "5 categories",
-    desc: "Motors, drives, switchgear, circuit breakers, and low and medium voltage equipment.",
-    parts: ["Motors & Drives", "Circuit Breakers", "Switchgear", "Selector Switches", "DC & Battery Systems"]
-  },
-  {
-    icon: "◎",
-    name: "Instrumentation",
-    hint: "5 categories",
-    desc: "Flowmeters, pressure and temperature gauges, level sensors, and position transducers.",
-    parts: ["Flowmeters", "Pressure Gauges", "Temperature Gauges", "Level Sensors", "Position Transducers"]
-  },
-  {
-    icon: "○",
-    name: "Bearings & Seals",
-    hint: "5 categories",
-    desc: "Plain and roller bearings, elastomer seals, and wear components for rotating equipment.",
-    parts: ["Plain Bearings", "Roller Bearings", "Elastomer Seals", "Shaft Seals", "Wear Parts"]
-  },
-  {
-    icon: "▦",
-    name: "Automation & Control",
-    hint: "5 categories",
-    desc: "Control panels, touch screen interfaces, input and output modules, and network devices.",
-    parts: ["Control Units", "Touch Screen Panels", "Input & Output Modules", "Network Interfaces", "Energy Meters"]
-  },
+const products = [
+  { id: "p001", img: "assets/products/p001.jpg", name: "HYDAC Hydraulic Accumulator & Accessories", category: "Hydraulic Systems", industries: ["Mining", "Power Generation", "Manufacturing", "Cement", "Oil & Gas", "Water & Wastewater"] },
+  { id: "p002", img: "assets/products/p002.jpg", name: "Pressure Switch / Transmitter", category: "Instrumentation & Automation", industries: ["Mining", "Power Generation", "Manufacturing", "Oil & Gas", "Cement", "Water & Wastewater"] },
+  { id: "p003", img: "assets/products/p003.jpg", name: "Hydraulic Rotary Actuator", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
+  { id: "p004", img: "assets/products/p004.jpg", name: "DC/AC Power Inverter", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Water & Wastewater", "Agriculture", "Mining"] },
+  { id: "p005", img: "assets/products/p005.jpg", name: "Generator Controller / HMI", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Oil & Gas"] },
+  { id: "p006", img: "assets/products/p006.jpg", name: "Solenoid Valve Assembly", category: "Valves & Flow Control", industries: ["Manufacturing", "Oil & Gas", "Mining", "Water & Wastewater", "Agriculture"] },
+  { id: "p007", img: "assets/products/p007.jpg", name: "Digital Energy Meter", category: "Instrumentation & Automation", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater", "Agriculture"] },
+  { id: "p008", img: "assets/products/p008.jpg", name: "Industrial Power Supply", category: "Electrical & Power Systems", industries: ["Manufacturing", "Power Generation", "Water & Wastewater", "Cement"] },
+  { id: "p009", img: "assets/products/p009.jpg", name: "Generator Test Controller", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Oil & Gas"] },
+  { id: "p010", img: "assets/products/p010.jpg", name: "Protection Relay / Meter", category: "Instrumentation & Automation", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
+  { id: "p011", img: "assets/products/p011.jpg", name: "High Voltage Test Unit (70 kVDC)", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Oil & Gas"] },
+  { id: "p012", img: "assets/products/p012.jpg", name: "Industrial Power Supply Module", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
+  { id: "p013", img: "assets/products/p013.jpg", name: "Siemens Industrial Power Supply", category: "Electrical & Power Systems", industries: ["Manufacturing", "Power Generation", "Water & Wastewater", "Food & Beverage", "Cement"] },
+  { id: "p014", img: "assets/products/p014.jpg", name: "PWM Motor Driver / DC Motor Controller", category: "Instrumentation & Automation", industries: ["Manufacturing", "Water & Wastewater", "Agriculture", "Food & Beverage"] },
+  { id: "p015", img: "assets/products/p015.jpg", name: "HYDAC FPU Pressure Test Kit", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
+  { id: "p016", img: "assets/products/p016.jpg", name: "Industrial Battery / UPS Module", category: "Electrical & Power Systems", industries: ["Power Generation", "Manufacturing", "Mining", "Water & Wastewater"] },
+  { id: "p017", img: "assets/products/p017.jpg", name: "Stainless Steel Instrument Tubing", category: "Tubing & Hoses", industries: ["Oil & Gas", "Mining", "Power Generation", "Water & Wastewater", "Food & Beverage"] },
+  { id: "p018", img: "assets/products/p018.jpg", name: "Industrial Cable Reel", category: "Electrical & Power Systems", industries: ["Power Generation", "Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas"] },
+  { id: "p019", img: "assets/products/p019.jpg", name: "Hydraulic Hose Assembly Kit", category: "Tubing & Hoses", industries: ["Mining", "Oil & Gas", "Agriculture", "Manufacturing", "Cement"] },
+  { id: "p020", img: "assets/products/p020.jpg", name: "Flexible Jaw Coupling", category: "Mechanical Power Transmission", industries: ["Manufacturing", "Mining", "Cement", "Water & Wastewater", "Food & Beverage", "Agriculture"] },
+  { id: "p021", img: "assets/products/p021.jpg", name: "Industrial Rubber Seals / O-Rings", category: "Seals & Repair Kits", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Food & Beverage", "Agriculture", "Cement"] },
+  { id: "p022", img: "assets/products/p022.jpg", name: "Hydraulic Seal Kit", category: "Seals & Repair Kits", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
+  { id: "p023", img: "assets/products/p023.jpg", name: "Bronze Plain Bearing Bush", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
+  { id: "p024", img: "assets/products/p024.jpg", name: "Plain Bearing Bushes", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
+  { id: "p025", img: "assets/products/p025.jpg", name: "Pump & Bearing Spare Parts Kit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Water & Wastewater", "Manufacturing", "Oil & Gas"] },
+  { id: "p026", img: "assets/products/p026.jpg", name: "Precision Wear Plate", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
+  { id: "p027", img: "assets/products/p027.jpg", name: "Hydraulic Cylinder Assembly", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
+  { id: "p028", img: "assets/products/p028.jpg", name: "Bearing Bush Inventory", category: "Mechanical Power Transmission", industries: ["Mining", "Manufacturing", "Cement", "Agriculture", "Oil & Gas"] },
+  { id: "p029", img: "assets/products/p029.jpg", name: "Hydraulic Manifold Block", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Water & Wastewater", "Cement"] },
+  { id: "p030", img: "assets/products/p030.jpg", name: "Electric Motor / Gear Motor", category: "Motors & Drives", industries: ["Mining", "Manufacturing", "Cement", "Water & Wastewater", "Food & Beverage", "Agriculture"] },
+  { id: "p031", img: "assets/products/p031.jpg", name: "HYDAC Mobile Filter Unit", category: "Filtration & Fluid Conditioning", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement", "Agriculture"] },
+  { id: "p032", img: "assets/products/p032.jpg", name: "Oil-Air Cooler / Hydraulic Cooler", category: "Filtration & Fluid Conditioning", industries: ["Mining", "Manufacturing", "Oil & Gas", "Cement", "Water & Wastewater"] },
+  { id: "p034", img: "assets/products/p034.jpg", name: "Heavy-Duty Hydraulic Cylinder", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
+  { id: "p035", img: "assets/products/p035.jpg", name: "Hydraulic Cylinder", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Agriculture", "Cement"] },
+  { id: "p036", img: "assets/products/p036.jpg", name: "Bladder Accumulator", category: "Hydraulic Systems", industries: ["Mining", "Oil & Gas", "Manufacturing", "Cement", "Water & Wastewater"] },
+  { id: "p037", img: "assets/products/p037.jpg", name: "Bosch Rexroth Solenoid Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p038", img: "assets/products/p038.jpg", name: "Bosch Rexroth Pressure / Flow Control Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p039", img: "assets/products/p039.jpg", name: "Bosch Rexroth Directional Control Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p040", img: "assets/products/p040.jpg", name: "4-Way Ball Valve", category: "Valves & Flow Control", industries: ["Mining", "Oil & Gas", "Manufacturing", "Water & Wastewater", "Cement"] },
+  { id: "p041", img: "assets/products/p041.jpg", name: "Air / Pneumatic Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas", "Food & Beverage"] },
+  { id: "p042", img: "assets/products/p042.jpg", name: "Rope Pull Safety Switch", category: "Instrumentation & Automation", industries: ["Mining", "Manufacturing", "Cement", "Food & Beverage", "Agriculture"] },
+  { id: "p043", img: "assets/products/p043.jpg", name: "Hydraulic Solenoid Valve", category: "Valves & Flow Control", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p044", img: "assets/products/p044.jpg", name: "Butterfly Valve", category: "Valves & Flow Control", industries: ["Water & Wastewater", "Oil & Gas", "Manufacturing", "Food & Beverage", "Cement", "Agriculture"] },
+  { id: "p045", img: "assets/products/p045.jpg", name: "Electric Pump Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Water & Wastewater", "Oil & Gas", "Agriculture"] },
+  { id: "p046", img: "assets/products/p046.jpg", name: "Hydraulic Power Unit (HPU)", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p047", img: "assets/products/p047.jpg", name: "Hydraulic Gear Pump", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Agriculture", "Cement"] },
+  { id: "p048", img: "assets/products/p048.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p049", img: "assets/products/p049.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement"] },
+  { id: "p050", img: "assets/products/p050.jpg", name: "Hydraulic Pump-Motor Unit", category: "Pumps & Fluid Transfer", industries: ["Mining", "Manufacturing", "Oil & Gas", "Water & Wastewater", "Cement", "Agriculture"] },
+  { id: "p051", img: "assets/products/p051.jpg", name: "Electric Motor with Gearbox / Gear Motor", category: "Motors & Drives", industries: ["Mining", "Manufacturing", "Cement", "Water & Wastewater", "Food & Beverage"] },
+  { id: "p052", img: "assets/products/p052.jpg", name: "Industrial Process Pump (Wilo)", category: "Pumps & Fluid Transfer", industries: ["Water & Wastewater", "Manufacturing", "Food & Beverage", "Agriculture", "Mining"] },
+  { id: "p053", img: "assets/products/p053.jpg", name: "Hydraulic Rotary Actuator", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
+  { id: "p054", img: "assets/products/p054.jpg", name: "Hydraulic Rotary Actuator (Close-up)", category: "Hydraulic Systems", industries: ["Mining", "Manufacturing", "Cement", "Oil & Gas"] },
 ];
+
+const equipmentMeta = [
+  { category: "Hydraulic Systems", icon: "⚙", desc: "Hydraulic power units, cylinders, actuators, and accumulators for industrial systems." },
+  { category: "Electrical & Power Systems", icon: "⚡", desc: "Motors, inverters, power supplies, and control equipment for electrical systems." },
+  { category: "Valves & Flow Control", icon: "⏻", desc: "Solenoid, ball, butterfly, and directional control valves for fluid and process control." },
+  { category: "Pumps & Fluid Transfer", icon: "🔧", desc: "Centrifugal, gear, and process pumps, along with pump and motor units." },
+  { category: "Instrumentation & Automation", icon: "◎", desc: "Sensors, switches, meters, and controllers for monitoring and automation." },
+  { category: "Mechanical Power Transmission", icon: "○", desc: "Bearings, bushings, couplings, and wear components for rotating equipment." },
+  { category: "Filtration & Fluid Conditioning", icon: "❄", desc: "Filter units and coolers that keep hydraulic and process fluids clean and controlled." },
+  { category: "Seals & Repair Kits", icon: "✚", desc: "Seal kits and O-rings for hydraulic and mechanical repair work." },
+  { category: "Motors & Drives", icon: "⟲", desc: "Electric motors and gear motors for driving industrial equipment." },
+  { category: "Tubing & Hoses", icon: "〰", desc: "Instrument tubing and hydraulic hose assemblies for fluid and pressure lines." },
+];
+
+const equipment = equipmentMeta.map(m => ({
+  icon: m.icon,
+  name: m.category,
+  hint: `${products.filter(p => p.category === m.category).length} items supplied`,
+  desc: m.desc,
+  items: products.filter(p => p.category === m.category),
+}));
+
 
 const services = [
   { tag: "SVC-01", title: "OEM Procurement Solutions", desc: "Direct sourcing of genuine equipment and parts through verified OEM relationships." },
@@ -72,64 +91,30 @@ const services = [
   { tag: "SVC-08", title: "Engineering Consultation", desc: "Technical input on retrofits, upgrades, and component selection." },
 ];
 
-const industries = [
-  {
-    icon: "⛏",
-    name: "Mining",
-    hint: "5 categories",
-    desc: "Genuine OEM parts and equipment for mining operations, from processing plants to heavy fleet support.",
-    parts: ["Crusher & Mill Components", "Conveyor Systems", "Pumps & Valves", "Hydraulic Cylinders", "Wear Parts"]
-  },
-  {
-    icon: "⚡",
-    name: "Power Generation",
-    hint: "Hydro · Thermal · Solar",
-    desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants, from turbines to control systems.",
-    parts: ["Turbine & Governor Parts", "Generators", "Hydraulic Power Units", "Cooling Water Systems", "Control & Automation"]
-  },
-  {
-    icon: "⚙",
-    name: "Manufacturing",
-    hint: "5 categories",
-    desc: "Spare parts and replacement components to keep production lines running with minimal disruption.",
-    parts: ["Motors & Drives", "Gearboxes", "Sensors & Switches", "Control Panels", "Seals & Gaskets"]
-  },
-  {
-    icon: "🍽",
-    name: "Food & Beverage",
-    hint: "5 categories",
-    desc: "Hygienic process equipment components for food and beverage processing facilities.",
-    parts: ["Pumps & Valves", "Process Instrumentation", "Stainless Fittings", "Filtration Systems", "Piping Components"]
-  },
-  {
-    icon: "🏗",
-    name: "Cement",
-    hint: "5 categories",
-    desc: "Wear resistant and process components for cement production, milling, and material handling.",
-    parts: ["Mill Liners & Wear Parts", "Kiln Components", "Conveyor Systems", "Fans & Blowers", "Hydraulic Systems"]
-  },
-  {
-    icon: "💧",
-    name: "Water & Wastewater",
-    hint: "5 categories",
-    desc: "Pumping, valve, and instrumentation components for municipal and industrial water infrastructure.",
-    parts: ["Pumps", "Valves & Actuators", "Flowmeters", "Level Sensors", "Filtration Media"]
-  },
-  {
-    icon: "🛢",
-    name: "Oil & Gas",
-    hint: "5 categories",
-    desc: "Certified components for upstream, midstream, and downstream oil and gas operations.",
-    parts: ["Valves & Actuators", "Pumps & Compressors", "Seals & Gaskets", "Instrumentation", "Safety Systems"]
-  },
-  {
-    icon: "🌾",
-    name: "Agriculture",
-    hint: "5 categories",
-    desc: "Equipment and spare parts supporting agricultural processing and heavy farm operations.",
-    parts: ["Irrigation Pumps", "Motors & Drives", "Processing Equipment", "Hydraulic Components", "Wear Parts"]
-  },
+const industriesMeta = [
+  { icon: "⛏", name: "Mining", desc: "Genuine OEM parts and equipment for mining operations, from processing plants to heavy fleet support." },
+  { icon: "⚡", name: "Power Generation", desc: "Mechanical, electrical, and auxiliary systems for hydropower, thermal, and solar plants, from turbines to control systems." },
+  { icon: "⚙", name: "Manufacturing", desc: "Spare parts and replacement components to keep production lines running with minimal disruption." },
+  { icon: "🍽", name: "Food & Beverage", desc: "Hygienic process equipment components for food and beverage processing facilities." },
+  { icon: "🏗", name: "Cement", desc: "Wear resistant and process components for cement production, milling, and material handling." },
+  { icon: "💧", name: "Water & Wastewater", desc: "Pumping, valve, and instrumentation components for municipal and industrial water infrastructure." },
+  { icon: "🛢", name: "Oil & Gas", desc: "Certified components for upstream, midstream, and downstream oil and gas operations." },
+  { icon: "🌾", name: "Agriculture", desc: "Equipment and spare parts supporting agricultural processing and heavy farm operations." },
 ];
+
+const INDUSTRY_SAMPLE_SIZE = 8;
+
+const industries = industriesMeta.map(m => {
+  const matches = products.filter(p => p.industries.includes(m.name));
+  return {
+    icon: m.icon,
+    name: m.name,
+    hint: `${matches.length} items supplied`,
+    desc: m.desc,
+    total: matches.length,
+    items: matches.slice(0, INDUSTRY_SAMPLE_SIZE),
+  };
+});
 
 // ---------- Render services ----------
 const servicesGrid = document.getElementById("servicesGrid");
@@ -175,10 +160,10 @@ function openPanel(item, eyebrowLabel, noteText){
   panelEyebrow.innerHTML = `<span class="rivet"></span>${eyebrowLabel}<span class="rivet"></span>`;
   panelTitle.textContent = item.name;
   panelDesc.textContent = item.desc;
-  panelParts.innerHTML = item.parts.map(p => `
-    <div class="part-tile">
-      <span class="tile-icon">▢</span>
-      ${p}
+  panelParts.innerHTML = item.items.map(p => `
+    <div class="part-tile part-tile-photo">
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+      <span>${p.name}</span>
     </div>
   `).join("");
   panelNote.textContent = noteText;
@@ -199,14 +184,17 @@ industryGrid.addEventListener("click", (e) => {
   const btn = e.target.closest(".industry-card");
   if (!btn) return;
   const ind = industries[Number(btn.dataset.index)];
-  openPanel(ind, `${ind.name}: sample sourcing categories`, "Photos of specific parts sourced for this sector will be added here. Contact us for a full catalogue.");
+  const noteText = ind.total > ind.items.length
+    ? "A sample of the equipment we've supplied for this sector. Contact us for the full range."
+    : "Equipment we've supplied for this sector.";
+  openPanel(ind, `${ind.name}: equipment supplied`, noteText);
 });
 
 equipmentGrid.addEventListener("click", (e) => {
   const btn = e.target.closest(".industry-card");
   if (!btn) return;
   const eq = equipment[Number(btn.dataset.index)];
-  openPanel(eq, `${eq.name}: sample equipment supplied`, "Photos of the equipment we've supplied in this category will be added here.");
+  openPanel(eq, `${eq.name}: equipment supplied`, "Equipment we've supplied in this category. Contact us for specific part numbers or availability.");
 });
 
 panelClose.addEventListener("click", closePanel);
