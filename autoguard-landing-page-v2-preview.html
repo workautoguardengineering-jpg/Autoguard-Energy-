@@ -22,14 +22,15 @@
   --ink: #163A5C;
   --ink-2: #1D4A70;
   --ink-3: #24567E;
+  --hero-bg: #2A5C82;
   --slate: #47617A;
   --slate-light: #B7C9D9;
   --cream: #F6FAFD;
   --accent2: #1F5A8C;
   --accent2-light: #4F86B8;
-  --accent: #3D7DB8;
-  --accent-light: #7FB2DD;
-  --accent-dark: #235E90;
+  --accent: #2E96A6;
+  --accent-light: #6DC3D1;
+  --accent-dark: #21707D;
   --line: rgba(22,58,92,0.16);
   --line-strong: rgba(22,58,92,0.28);
   --line-light: rgba(246,250,253,0.18);
@@ -159,7 +160,7 @@ p{ margin: 0 0 14px; }
 =================================================================== */
 .hero{
   position: relative;
-  background: var(--ink);
+  background: var(--hero-bg);
   padding: 116px 0 0;
 }
 .hero-grid{ display:none; }
@@ -279,7 +280,7 @@ p{ margin: 0 0 14px; }
   border-top:none; border-left:none;
   border-bottom: 1px solid var(--accent-light); border-right: 1px solid var(--accent-light);
 }
-.industry-card:hover{ border-color: var(--line-light-strong); background: rgba(61,125,184,0.08); }
+.industry-card:hover{ border-color: var(--line-light-strong); background: rgba(46,150,166,0.1); }
 .industry-card:hover::before, .industry-card:hover::after{ opacity:1; }
 .industry-icon{ font-size:1.5rem; margin-bottom:14px; display:block; filter: grayscale(1) brightness(1.6); opacity:0.85; }
 .industry-card h4{ font-family: var(--font-display); font-weight:400; font-size:1.1rem; margin:0 0 6px; }
