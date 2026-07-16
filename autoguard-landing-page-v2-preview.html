@@ -284,6 +284,13 @@ p{ margin: 0 0 14px; }
 .industry-icon{ font-size:1.5rem; margin-bottom:14px; display:block; filter: grayscale(1) brightness(1.6); opacity:0.85; }
 .industry-card h4{ font-family: var(--font-display); font-weight:400; font-size:1.1rem; margin:0 0 6px; }
 .industry-card span.hint{ font-family: var(--font-mono); font-size:0.62rem; letter-spacing:0.1em; color: var(--slate-light); text-transform:uppercase; }
+.tap-hint{
+  display:flex; align-items:center; gap:6px; margin-top:14px;
+  font-family: var(--font-mono); font-size:0.66rem; letter-spacing:0.06em; text-transform:uppercase;
+  color: var(--accent-light);
+}
+.tap-hint .arrow{ display:inline-block; transition: transform .15s ease; }
+.industry-card:hover .tap-hint .arrow{ transform: translateX(4px); }
 
 /* Industry detail overlay panel */
 .panel-backdrop{
@@ -369,7 +376,8 @@ p{ margin: 0 0 14px; }
 .contact-info{ display:flex; flex-direction:column; gap:20px; }
 .info-block{ display:flex; flex-direction:column; gap:4px; border-bottom:1px solid var(--line); padding-bottom:17px; }
 .info-label{ font-family: var(--font-mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--slate); }
-.info-block a{ font-weight:600; }
+.info-block a{ font-weight:600; color: var(--accent2); }
+.info-block a:hover{ color: var(--accent); text-decoration: underline; }
 .map-embed{ border-radius: 0; overflow:hidden; border:1px solid var(--line); margin-top:6px; filter: grayscale(0.5) contrast(1.05); }
 
 /* ---------- Footer ---------- */
@@ -378,7 +386,8 @@ p{ margin: 0 0 14px; }
 .footer-logo{ height:38px; margin-bottom:18px; }
 .footer-grid h5{ font-family: var(--font-mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color: var(--cream); margin: 0 0 15px; }
 .footer-grid a, .footer-grid span{ display:block; margin-bottom:10px; font-size:0.9rem; }
-.footer-grid a:hover{ color: var(--accent-light); }
+.footer-grid a{ color: var(--accent-light); }
+.footer-grid a:hover{ color: #fff; text-decoration: underline; }
 .footer-bottom{ padding: 24px; font-size:0.8rem; }
 
 /* ===================================================================
@@ -876,7 +885,7 @@ const industries = industriesMeta.map(m => {
 const partnerGrid = document.getElementById("partnerGrid");
 partnerGrid.innerHTML = partners.map(p => `
   <div class="partner-logo">
-    <img src="assets/partners/${p.file}" alt="${p.name} logo" loading="lazy">
+    <img src="assets/${p.file}" alt="${p.name} logo" loading="lazy">
   </div>
 `).join("");
 
@@ -896,6 +905,7 @@ equipmentGrid.innerHTML = equipment.map((e, i) => `
   <button class="industry-card" data-index="${i}">
     <span class="industry-icon">${e.icon}</span>
     <h4>${e.name}</h4>
+    <span class="tap-hint">View equipment <span class="arrow">&rarr;</span></span>
   </button>
 `).join("");
 
@@ -905,6 +915,7 @@ industryGrid.innerHTML = industries.map((ind, i) => `
   <button class="industry-card" data-index="${i}">
     <span class="industry-icon">${ind.icon}</span>
     <h4>${ind.name}</h4>
+    <span class="tap-hint">View equipment <span class="arrow">&rarr;</span></span>
   </button>
 `).join("");
 
