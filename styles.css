@@ -9,7 +9,7 @@
   --paper-2: #E4EFF7;
   --paper-3: #D2E4F0;
   --ink: #163A5C;
-  --ink-2: #1D4A70;
+  --ink-2: var(--hero-bg);
   --ink-3: #24567E;
   --hero-bg: #2A5C82;
   --slate: #47617A;
@@ -195,7 +195,7 @@ p{ margin: 0 0 14px; }
 =================================================================== */
 .section{ padding: 104px 0; position:relative; }
 .section-light{ background: var(--paper); }
-.section-ink{ background: var(--ink); }
+.section-ink{ background: var(--hero-bg); }
 .section-steel{ background: var(--ink-2); }
 /* Ledger rule across the top of every section — the recurring signature line */
 .section::before{
