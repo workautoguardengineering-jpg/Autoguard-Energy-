@@ -158,6 +158,7 @@ equipmentGrid.innerHTML = equipment.map((e, i) => `
   <button class="industry-card" data-index="${i}">
     <span class="industry-icon">${e.icon}</span>
     <h4>${e.name}</h4>
+    <span class="tap-hint">View equipment <span class="arrow">&rarr;</span></span>
   </button>
 `).join("");
 
@@ -167,6 +168,7 @@ industryGrid.innerHTML = industries.map((ind, i) => `
   <button class="industry-card" data-index="${i}">
     <span class="industry-icon">${ind.icon}</span>
     <h4>${ind.name}</h4>
+    <span class="tap-hint">View equipment <span class="arrow">&rarr;</span></span>
   </button>
 `).join("");
 
