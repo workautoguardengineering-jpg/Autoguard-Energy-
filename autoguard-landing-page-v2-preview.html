@@ -870,6 +870,15 @@ const industriesMeta = [
 
 const INDUSTRY_SAMPLE_SIZE = 8;
 
+function shuffle(arr){
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 const industries = industriesMeta.map(m => {
   const matches = products.filter(p => p.industries.includes(m.name));
   return {
@@ -878,7 +887,7 @@ const industries = industriesMeta.map(m => {
     hint: `${matches.length} items supplied`,
     desc: m.desc,
     total: matches.length,
-    items: matches.slice(0, INDUSTRY_SAMPLE_SIZE),
+    items: shuffle(matches).slice(0, INDUSTRY_SAMPLE_SIZE),
   };
 });
 
