@@ -80,6 +80,24 @@ const equipment = equipmentMeta.map(m => ({
 }));
 
 
+const partners = [
+  { name: "Rapid Allweiler", file: "01-rapid-allweiler.jpg" },
+  { name: "CIRCOR / IMO", file: "02-circor-imo.jpg" },
+  { name: "Modine", file: "03-modine.jpg" },
+  { name: "Thermofin", file: "04-thermofin.jpg" },
+  { name: "Koncar", file: "05-koncar.jpg" },
+  { name: "Hydro Execution AS", file: "06-hydro-execution.jpg" },
+  { name: "SERGI", file: "07-sergi.jpg" },
+  { name: "Viking / Deluge", file: "08-viking-deluge.jpg" },
+  { name: "Carrier AHI", file: "09-carrier-ahi.jpg" },
+  { name: "Pilgrim International", file: "10-pilgrim.jpg" },
+  { name: "Valard Bearing", file: "11-valard-bearing.jpg" },
+  { name: "Mitchell Bearings", file: "12-mitchell-bearings.jpg" },
+  { name: "Mersen", file: "13-mersen.jpg" },
+  { name: "Helmke", file: "14-helmke.jpg" },
+  { name: "Deluge Fire Protection", file: "15-deluge-fire-protection.jpg" },
+];
+
 const services = [
   { tag: "SVC-01", title: "OEM Procurement Solutions", desc: "Direct sourcing of genuine equipment and parts through verified OEM relationships." },
   { tag: "SVC-02", title: "Industrial Spare Parts Supply", desc: "Mechanical, electrical, hydraulic, and automation components for critical assets." },
@@ -115,6 +133,14 @@ const industries = industriesMeta.map(m => {
     items: matches.slice(0, INDUSTRY_SAMPLE_SIZE),
   };
 });
+
+// ---------- Render partner logos ----------
+const partnerGrid = document.getElementById("partnerGrid");
+partnerGrid.innerHTML = partners.map(p => `
+  <div class="partner-logo">
+    <img src="assets/${p.file}" alt="${p.name} logo" loading="lazy">
+  </div>
+`).join("");
 
 // ---------- Render services ----------
 const servicesGrid = document.getElementById("servicesGrid");
