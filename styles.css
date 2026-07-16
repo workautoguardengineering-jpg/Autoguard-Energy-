@@ -297,6 +297,7 @@ p{ margin: 0 0 14px; }
   font-size:1.6rem; cursor:pointer; line-height:1;
 }
 .industry-panel .h3{ font-family: var(--font-display); font-weight:400; }
+.industry-panel .lead{ color: var(--slate-light); }
 .parts-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin: 26px 0 20px; }
 .part-tile{
   border:1px dashed var(--line-light-strong); border-radius: 0; padding: 18px 12px;
@@ -314,7 +315,8 @@ p{ margin: 0 0 14px; }
 }
 .part-tile-photo span{
   display: block; padding: 10px 12px; font-size: 0.68rem; letter-spacing: 0.02em;
-  line-height: 1.35; color: var(--cream); font-family: var(--font-body); font-weight: 500;
+  line-height: 1.35; color: var(--cream); font-family: var(--font-body); font-weight: 600;
+  background: var(--ink); border-top: 1px solid var(--line-light);
 }
 .panel-note{ font-size:0.83rem; color: var(--slate-light); border-top:1px solid var(--line-light); padding-top:18px; }
 
