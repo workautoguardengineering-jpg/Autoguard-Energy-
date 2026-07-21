@@ -99,14 +99,22 @@ const partners = [
 ];
 
 const services = [
-  { tag: "SVC-01", title: "OEM Procurement Solutions", desc: "Direct sourcing of genuine equipment and parts through verified OEM relationships." },
-  { tag: "SVC-02", title: "Industrial Spare Parts Supply", desc: "Mechanical, electrical, hydraulic, and automation components for critical assets." },
-  { tag: "SVC-03", title: "Replacement Equipment Sourcing", desc: "Sourcing full replacement units when repair is no longer viable." },
-  { tag: "SVC-04", title: "Technical Procurement Support", desc: "Specification review and technical validation before you commit to an order." },
-  { tag: "SVC-05", title: "Supply Chain Coordination", desc: "Coordinating logistics all the way from the OEM to your facility." },
-  { tag: "SVC-06", title: "Vendor & OEM Liaison", desc: "Acting as your single point of contact across multiple suppliers." },
-  { tag: "SVC-07", title: "Shutdown & Outage Support", desc: "Rapid procurement support for planned and emergency shutdowns." },
-  { tag: "SVC-08", title: "Engineering Consultation", desc: "Technical input on retrofits, upgrades, and component selection." },
+  { tag: "01", icon: "👥", title: "Consultation & Advisory", desc: "Expert industrial advice to help you make informed decisions. We assess, recommend, and align solutions to your goals." },
+  { tag: "02", icon: "⚙", title: "Engineering Services", desc: "Design, analysis, and technical engineering tailored to your project needs, ensuring safety, efficiency, and compliance." },
+  { tag: "03", icon: "🛒", title: "OEM Procurement Partner", desc: "We work with trusted OEMs worldwide to source genuine equipment and components of the highest quality." },
+  { tag: "04", icon: "📦", title: "Industrial Procurement Solutions", desc: "End-to-end procurement support across a wide range of industries and equipment, on time, on spec, and on budget." },
+  { tag: "05", icon: "🚚", title: "Supply Chain Coordination", desc: "Seamless logistics and coordination from supplier to site. We manage the flow so you can focus on performance." },
+  { tag: "06", icon: "🤝", title: "Vendor & OEM Liaison", desc: "We act as your single point of contact across multiple vendors and OEMs, simplifying communication and delivery." },
+  { tag: "07", icon: "🛠", title: "Shutdown & Outage Support", desc: "Planned or unplanned, we provide rapid response procurement and technical support to minimize downtime and keep operations moving." },
+  { tag: "08", icon: "🎧", title: "Technical Support & Engineering Consultation", desc: "From specification to installation advice, we provide ongoing technical input for upgrades, retrofits, and component selection." },
+];
+
+const serviceValues = [
+  { icon: "🛡", title: "Quality Assured", desc: "We deliver reliable, compliant, and OEM-quality solutions." },
+  { icon: "🎯", title: "Industry Focused", desc: "Solutions tailored for the industries we serve." },
+  { icon: "👥", title: "Client Centered", desc: "We build long-term partnerships through trust and performance." },
+  { icon: "⏱", title: "Responsive & Reliable", desc: "Fast turnaround. Consistent support. Always dependable." },
+  { icon: "📈", title: "Value Driven", desc: "Cost-effective solutions that maximize your investment." },
 ];
 
 const industriesMeta = [
@@ -156,8 +164,21 @@ const servicesGrid = document.getElementById("servicesGrid");
 servicesGrid.innerHTML = services.map(s => `
   <div class="service-card">
     <span class="service-tag">${s.tag}</span>
+    <span class="service-icon">${s.icon}</span>
     <h4>${s.title}</h4>
     <p>${s.desc}</p>
+  </div>
+`).join("");
+
+// ---------- Render service values strip ----------
+const valuesStrip = document.getElementById("valuesStrip");
+valuesStrip.innerHTML = serviceValues.map(v => `
+  <div class="value-item">
+    <span class="value-icon">${v.icon}</span>
+    <div>
+      <h5>${v.title}</h5>
+      <p>${v.desc}</p>
+    </div>
   </div>
 `).join("");
 
