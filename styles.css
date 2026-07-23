@@ -42,7 +42,9 @@ body{
   background: var(--paper);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+section{ scroll-margin-top: 82px; }
 img{ max-width:100%; display:block; -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
 a{ color: inherit; text-decoration: none; }
 ul{ margin:0; padding:0; list-style:none; }
@@ -270,13 +272,28 @@ p{ margin: 0 0 14px; }
 /* Ledger rule across the top of every section — the recurring signature line */
 .section::before{
   content:"";
-  position:absolute; top:0; left:0; right:0; height:1px;
-  background: var(--accent);
+  position:absolute; top:0; left:0; right:0; height:6px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 15%,
+    var(--accent) 50%,
+    var(--accent-dark) 75%,
+    transparent 100%
+  );
+  opacity:0.9;
+}
+.section-light::before{
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent) 15%,
+    var(--accent) 50%,
+    var(--accent-dark) 75%,
+    transparent 100%
+  );
   opacity:0.5;
 }
-.section-light::before{ background: var(--accent2); opacity:0.35; }
 
-.split-grid{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items:start; }
+.split-grid{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items:start; overflow-wrap: break-word; word-break: break-word; }
 .card{ padding: 0; margin-bottom: 26px; }
 .card-outline{
   border: none; border-top: 2px solid var(--accent2);
