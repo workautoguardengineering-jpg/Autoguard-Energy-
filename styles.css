@@ -223,13 +223,19 @@ p{ margin: 0 0 14px; }
 #equipment.section-photo{
   background-image:
     linear-gradient(rgba(30,39,80,0.88), rgba(30,39,80,0.88)),
-    url('assets/gearbox-cutaway.jpg');
+    url('assets/timing-chains.jpg');
   background-position: center;
 }
 #why.section-photo{
   background-image:
     linear-gradient(rgba(30,39,80,0.93), rgba(30,39,80,0.90)),
-    url('assets/gearbox-cutaway.jpg');
+    url('assets/repairs-assembly.jpg');
+  background-position: center;
+}
+#services.section-photo{
+  background-image:
+    linear-gradient(rgba(242,247,251,0.94), rgba(242,247,251,0.94)),
+    url('assets/engineering-parts.jpg');
   background-position: center;
 }
 
