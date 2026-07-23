@@ -204,33 +204,60 @@ p{ margin: 0 0 14px; }
 .section-ink{ background: var(--hero-bg); }
 .section-steel{ background: var(--ink-2); }
 
-/* ---------- Photo-background sections (mockup) ---------- */
+/* ---------- Photo-background sections ---------- */
 .section-photo{ background-size: cover; background-position: center; }
+
+/* Dark sections — heavy tint so text stays readable */
 #challenge.section-photo{
   background-image:
-    linear-gradient(rgba(30,39,80,0.93), rgba(30,39,80,0.93)),
+    linear-gradient(rgba(30,39,80,0.92), rgba(30,39,80,0.92)),
+    url('assets/timing-chains.jpg');
+  background-position: center;
+}
+#industries.section-photo{
+  background-image:
+    linear-gradient(rgba(30,39,80,0.88), rgba(30,39,80,0.88)),
     url('assets/repairs-assembly.jpg');
+  background-position: center;
+}
+#equipment.section-photo{
+  background-image:
+    linear-gradient(rgba(30,39,80,0.88), rgba(30,39,80,0.88)),
+    url('assets/gearbox-cutaway.jpg');
+  background-position: center;
 }
 #why.section-photo{
   background-image:
-    linear-gradient(rgba(30,39,80,0.94), rgba(30,39,80,0.90)),
-    url('assets/timing-chains.jpg');
+    linear-gradient(rgba(30,39,80,0.93), rgba(30,39,80,0.90)),
+    url('assets/gearbox-cutaway.jpg');
+  background-position: center;
 }
-#projects.section-photo{
+
+/* Light sections — very gentle tint so background reads as texture, not noise */
+#about.section-photo{
   background-image:
-    linear-gradient(100deg, rgba(242,247,251,0.97) 0%, rgba(242,247,251,0.9) 55%, rgba(242,247,251,0.6) 100%),
-    url('assets/engineering-parts.jpg');
+    linear-gradient(rgba(242,247,251,0.94), rgba(242,247,251,0.94)),
+    url('assets/watch-movement.jpg');
+  background-position: center;
 }
 #how.section-photo{
   background-image:
     linear-gradient(rgba(242,247,251,0.95), rgba(242,247,251,0.92)),
     url('assets/radial-engine.jpg');
 }
+#projects.section-photo{
+  background-image:
+    linear-gradient(rgba(242,247,251,0.93), rgba(242,247,251,0.93)),
+    url('assets/repairs-assembly.jpg');
+  background-position: center top;
+}
 #contact.section-photo{
   background-image:
     linear-gradient(rgba(242,247,251,0.965), rgba(242,247,251,0.945)),
-    url('assets/watch-movement.jpg');
+    url('assets/engineering-parts.jpg');
 }
+
+/* Panel (industries + equipment slide-in) */
 @media (min-width: 900px){
   #challenge.section-photo, #why.section-photo{ background-attachment: fixed; }
 }
@@ -257,9 +284,10 @@ p{ margin: 0 0 14px; }
   border: 1px solid var(--line);
   box-shadow: 0 14px 30px rgba(41,57,123,0.14);
 }
-.projects-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items:center; margin-top: 10px; }
+.projects-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 52px; align-items:center; margin-top: 10px; }
 .projects-photo{
-  width:100%; max-height: 380px; object-fit: cover; border-radius: 2px;
+  width:100%; height: 420px; object-fit: cover; object-position: center top;
+  border-radius: 2px;
   border: 1px solid var(--line);
   box-shadow: 0 14px 30px rgba(41,57,123,0.14);
 }
@@ -289,26 +317,25 @@ p{ margin: 0 0 14px; }
   border-radius: 0; padding: 20px 0 0; position:relative;
 }
 .service-tag{ font-family: var(--font-mono); font-size:0.62rem; letter-spacing:0.14em; color: var(--accent-dark); text-transform:uppercase; }
-.service-icon{
-  width:46px; height:46px; border:1.5px solid var(--accent); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.15rem; margin:14px 0 12px;
-  filter: grayscale(1) sepia(1) hue-rotate(140deg) saturate(2.4) brightness(0.85);
-}
 .services-tagline{ font-weight:600; color: var(--ink); font-size:1.02rem; margin: -6px 0 10px; }
+
+/* Values strip — borderless horizontal rule below the cards */
 .values-strip{
-  display:grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
-  margin-top: 56px; background: var(--cream); border: 1px solid var(--line);
-  border-radius: 2px; padding: 24px 22px;
+  display:grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; margin-top: 52px;
+  border-top: 2px solid var(--accent);
 }
-.value-item{ display:flex; gap:12px; align-items:flex-start; }
-.value-icon{
-  flex:none; width:38px; height:38px; border:1.5px solid var(--accent); border-radius:50%;
-  display:flex; align-items:center; justify-content:center; font-size:0.95rem;
-  filter: grayscale(1) sepia(1) hue-rotate(140deg) saturate(2.4) brightness(0.85);
+.value-item{
+  display:flex; flex-direction:column; gap: 8px;
+  padding: 22px 20px 0; border-right: 1px solid var(--line);
 }
-.value-item h5{ font-family: var(--font-body); font-weight:700; font-size:0.84rem; margin:0 0 3px; color: var(--ink); }
-.value-item p{ font-size:0.78rem; color: var(--slate); margin:0; line-height:1.45; }
+.value-item:last-child{ border-right: none; }
+.value-dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); flex: none;
+}
+.value-item h5{ font-family: var(--font-body); font-weight:700; font-size:0.86rem; margin:0 0 2px; color: var(--ink); }
+.value-item p{ font-size:0.8rem; color: var(--slate); margin:0; line-height:1.45; }
 .service-card h4{ font-family: var(--font-display); font-weight:600; font-size:1.15rem; margin: 10px 0 8px; }
 .service-card p{ font-size:0.92rem; color: var(--slate); margin:0; }
 
@@ -360,14 +387,14 @@ p{ margin: 0 0 14px; }
 
 .industry-panel{
   position:fixed; top:0; right:0; height:100%; width: min(480px, 92vw);
-  background: var(--ink-2); color: var(--cream);
+  background: var(--ink-2);
+  color: var(--cream);
   z-index: 950;
   transform: translateX(100%);
   transition: transform .28s ease;
   overflow-y:auto;
   border-left: 1px solid var(--line-light);
 }
-.industry-panel.open{ transform: translateX(0); }
 .industry-panel-inner{ padding: 38px 34px 54px; }
 .panel-close{
   position:absolute; top:24px; right:26px; background:none; border:none; color: var(--cream);
